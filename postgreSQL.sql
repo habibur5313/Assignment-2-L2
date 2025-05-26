@@ -49,7 +49,7 @@ SELECT
   CASE 
     WHEN EXTRACT(HOUR FROM sighting_time) < 12 THEN 'Morning'
     WHEN EXTRACT(HOUR FROM sighting_time) BETWEEN 12 AND 17 THEN 'Afternoon'
-    ELSE 'Evening'
+    WHEN EXTRACT(HOUR FROM sighting_time) > 17  THEN 'Evening'
   END AS time_of_day
 FROM sightings;
 
